@@ -6,6 +6,8 @@ library(skimr)
 library(countrycode)
 library(scales)
 
+
+
 polisciols::nes
 dplyr::distinct(nes, income_gap)
 skim(nes$income_gap)
