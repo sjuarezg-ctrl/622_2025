@@ -1,0 +1,159 @@
+---
+title: "Problem Set 2"
+subtitle: "Due date: 23 September"
+format: 
+  html:
+    self-contained: true
+toc: true
+editor: visual
+execute: 
+  echo: true
+  warning: false
+---
+
+```{r}
+library(tidyverse)
+library(wbstats)
+```
+
+Please upload your completed assignment to the ELMs course site (under the assignments menu) and to your class Github repository. You need to upload both your Quarto document (with R code, as needed) and its rendered output (either as a PDF or HTML file).
+
+**Total points: 25**
+
+## Question 1
+
+*Points: 10*
+
+Suppose I want to examine the hypothesis that consuming political news coverage from cable network channels (e.g., CNN, MSNBC, Fox News, etc.) causes citizens to have less trust in government than if they were to consume it from mainstream print media (e.g., New York Times, Wall Street Journal, etc.). What is more, suppose that I believe that this effect is greatest among "young" citizens. Design the contours of an experiment to test this proposition (and be sure to sketch the key elements of the experimental design). Second, briefly describe any significant shortcomings that the experimental design might have.
+
+Answer:
+
+The experiment in question would involve a randomly selected sample of 1,000 individuals between the ages of 18 and 30. They would then be randomly assigned into one of two groups: the control or treatment. Prior to the treatment, both groups would answer a pretreatment survey to gauge their feelings. The control group would provide the participants with a series of print media articles. The treatment would come in the form of exposure to clips from cable network channels. Following this, they would have to answer a follow up survey regarding their trust in the government. Independent variable would be the type of news coverage, whether it be cable network or print media. The dependent variable would be the trust that citizens have in their government.
+
+Some significant shortcomings would come in the form of variables that can't be accounted for that might have influenced the opinion that individuals had prior to the experiment. These include: interactions with their inner circle, their political affiliation, or usage of social media since all could have altered their trust in the government even before being exposed to network coverage.
+
+## Question 2
+
+*Points: 10*
+
+Below are four hypothetical research designs to determine the effects of democratic governance on the funding of educational institutions. Briefly evaluate each sampling design in terms of its: (1) sampling variability; and, (2) sources of potential bias.
+
+A.  A sample of educational funding levels for every country in Europe for each of the last 100 years. (low sampling variability because it is only focused withing Europe and it is a very large sample, high bias because there is no indication of random sampling)
+
+B.  A sample of educational funding levels in five randomly picked countries drawn from the global population of countries for each of the last 10 years. (high sampling variability because it is a much smaller sample, low bias because the countries were randomly chosen)
+
+C.  A survey of educational administrators that yields responses that allow for a comparison of educational funding levels in Russia and the United States for the six-year period from 2010 to 2015.( Answer: low sampling variability because Russia and the US are not representative of all educational instutions, high bias because there is no indication of random selection or assignment)
+
+D.  A sample of 75 randomly selected countries' educational funding levels for each of the past 25 years. (Answer: moderate sampling variability because the sample size is still fairly large, but still a smaller portion. Low bias because they are randomly selected)
+
+## Question 3
+
+*Points: 5*
+
+The COVID-19 pandemic wreaked havoc on the global economy. People became sick or died, supply chains snapped, and we all sheltered behind strict national borders or in our homes. We can see the effect of these changes when we look at how the growth of countries' Gross Domestic Product (GDP) changed between 2019 and the global pandemic's start in 2020.
+
+::: callout-note
+GDP is a popular measure of a country's annual economic output. Its annual growth tends to be approximately Normally distributed.
+:::
+
+```{r}
+library(tidyverse)
+library(wbstats)
+
+gdp_growth_df <- wb_data("NY.GDP.MKTP.KD.ZG", 
+                         start_date = 2019, 
+                         end_date = 2020, 
+                         return_wide = F)
+
+ggplot(gdp_growth_df, aes(x = value, fill = factor(date))) + 
+  geom_density(alpha = 0.75) + 
+  theme_minimal() + 
+  theme(plot.title = element_text(face = "bold"),
+        plot.title.position = "plot") + 
+  labs(title = "Countries' annual percentage growth rate of GDP in 2019 and 2020",
+       x = "Annual growth in GDP (%)",
+       y = "Density",
+       fill = "Year",
+       caption = "Source: World Bank")
+```
+
+### Part A
+
+*Points: 2*
+
+Describe the distribution of all countries' annual GDP growth rates in 2019 (found in the `gdp_growth_df` dataframe). Do the same for 2020. Include in those descriptions their five-number summaries.
+
+```{r}
+summary_2019 <- gdp_growth_df|>
+  filter(date==2019)|>
+  pull(value)|>
+  summary()
+summary_2019
+
+gdp_2019graph <- gdp_growth_df|>
+  filter(date==2019)
+
+ggplot(gdp_2019graph, aes(x=value))+
+  geom_histogram(binwidth = 1)+
+  theme_minimal()+
+  labs(title="2019")
+
+summary_2020 <-  gdp_growth_df|>
+  filter(date==2020)|>
+  pull(value)|>
+  summary()
+summary_2020
+
+gdp_2020graph <- gdp_growth_df|>
+  filter(date==2020)
+
+ggplot(gdp_2020graph, aes(x=value))+
+  geom_histogram(binwidth = 1)+
+  theme_minimal()+
+  labs(title="2020")
+```
+
+The 2019 data was moderately uniform, the five number summary consisted of Min (-11.447), Q1 (1.168), Median (2.898), Q3 (4.923), and a Max (23. 412).
+
+The 2020 data was slightly skewed to the left, the five number summary consisted of Min(-54.336), Q1(-8.205), Median (-3.815), Q3 (-1.169), and a Max (43.480).
+
+### Part B
+
+*Points: 2*
+
+Calculate the mean and standard deviation of all countries' annual GDP growth rates in 2019. Do the same for 2020.
+
+```{r}
+
+mean_2019 <- gdp_growth_df|>
+  filter(date==2019)|>
+  summarise(mean(value,na.rm=TRUE))
+mean_2019
+
+sd_2019 <- gdp_growth_df|>
+  filter(date==2019)|>
+  summarise(sd(value,na.rm = TRUE))
+sd_2019
+
+mean_2020 <-gdp_growth_df|>
+  filter(date==2020)|>
+  summarise(mean(value,na.rm=TRUE))
+mean_2020
+
+sd_2020 <- gdp_growth_df|>
+  filter(date==2020)|>
+  summarise(sd(value,na.rm = TRUE))
+sd_2020
+```
+
+The 2019 mean was 2.90 and the standard deviation was 3.54.
+
+The 2020 mean was -5.11 and the standard deviation was 8.69
+
+### Part C
+
+*Points: 1*
+
+Compare the mean and standard deviation of GDP growth rates in 2019 with those in 2020. What, generally, happened to each country's economy? Do not use the words or phrases "mean" or "standard deviation" in your answer.
+
+2020 saw a noticeable decrease in the total GDP of each country. They also widely varied, meaning that there were some countries with very high GDP growth rates while others saw very low growth rates.
