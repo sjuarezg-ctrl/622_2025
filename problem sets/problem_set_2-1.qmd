@@ -20,13 +20,31 @@ Please upload your completed assignment to the ELMs course site (under the assig
 
 **Total points: 25**
 
+::: callout-note
+19.5/25
+:::
+
 ## Question 1
 
 *Points: 10*
 
+::: callout-note
+5/10
+:::
+
 Suppose I want to examine the hypothesis that consuming political news coverage from cable network channels (e.g., CNN, MSNBC, Fox News, etc.) causes citizens to have less trust in government than if they were to consume it from mainstream print media (e.g., New York Times, Wall Street Journal, etc.). What is more, suppose that I believe that this effect is greatest among "young" citizens. Design the contours of an experiment to test this proposition (and be sure to sketch the key elements of the experimental design). Second, briefly describe any significant shortcomings that the experimental design might have.
 
 Answer:
+
+::: callout-note
+Your design is good, but there are some issues you would need to address:
+
+-   You don't really have a control group. You change how participants consume news in all of your groups. Rather, you should have three groups: a control that consumes no news; a cable news treatment group that can only get news from cable news; and a print media treatment group that can only get news from print media.
+
+-   You need to recruit older participants as well. This would allow you to compare the magnitude of the effect among young vs. old people.
+
+-   Your shortcoming should be addressed with random selection. Yes, they will come to this with prior views, but those prior beliefs should be balanced among the sample. You know of these from your pre-treatment survey.
+:::
 
 The experiment in question would involve a randomly selected sample of 1,000 individuals between the ages of 18 and 30. They would then be randomly assigned into one of two groups: the control or treatment. Prior to the treatment, both groups would answer a pretreatment survey to gauge their feelings. The control group would provide the participants with a series of print media articles. The treatment would come in the form of exposure to clips from cable network channels. Following this, they would have to answer a follow up survey regarding their trust in the government. Independent variable would be the type of news coverage, whether it be cable network or print media. The dependent variable would be the trust that citizens have in their government.
 
@@ -35,6 +53,10 @@ Some significant shortcomings would come in the form of variables that can't be 
 ## Question 2
 
 *Points: 10*
+
+::: callout-note
+10/10
+:::
 
 Below are four hypothetical research designs to determine the effects of democratic governance on the funding of educational institutions. Briefly evaluate each sampling design in terms of its: (1) sampling variability; and, (2) sources of potential bias.
 
@@ -81,6 +103,10 @@ ggplot(gdp_growth_df, aes(x = value, fill = factor(date))) +
 
 *Points: 2*
 
+::: callout-note
+1.5/2
+:::
+
 Describe the distribution of all countries' annual GDP growth rates in 2019 (found in the `gdp_growth_df` dataframe). Do the same for 2020. Include in those descriptions their five-number summaries.
 
 ```{r}
@@ -115,11 +141,27 @@ ggplot(gdp_2020graph, aes(x=value))+
 
 The 2019 data was moderately uniform, the five number summary consisted of Min (-11.447), Q1 (1.168), Median (2.898), Q3 (4.923), and a Max (23. 412).
 
+::: callout-note
+Uniform data looks the same across all values:
+
+```{r}
+
+ggplot() + 
+  geom_histogram(aes(x = runif(1e6)))
+```
+
+The 2019 GDP data look approximately Normal.
+:::
+
 The 2020 data was slightly skewed to the left, the five number summary consisted of Min(-54.336), Q1(-8.205), Median (-3.815), Q3 (-1.169), and a Max (43.480).
 
 ### Part B
 
 *Points: 2*
+
+::: callout-note
+2/2
+:::
 
 Calculate the mean and standard deviation of all countries' annual GDP growth rates in 2019. Do the same for 2020.
 
@@ -153,6 +195,10 @@ The 2020 mean was -5.11 and the standard deviation was 8.69
 ### Part C
 
 *Points: 1*
+
+::: callout-note
+1/1
+:::
 
 Compare the mean and standard deviation of GDP growth rates in 2019 with those in 2020. What, generally, happened to each country's economy? Do not use the words or phrases "mean" or "standard deviation" in your answer.
 
