@@ -1,0 +1,161 @@
+---
+title: "Problem Set 3"
+subtitle: "Due date: 30 September"
+format: 
+  html:
+    self-contained: true
+toc: true
+editor: visual
+execute: 
+  warning: false
+---
+
+Please upload your completed assignment to the ELMs course site (under the assignments menu) and to your class Github repository. You need to upload both your Quarto document (with R code, as needed) and its rendered output (either as a PDF or HTML file).
+
+**Total points: 27**
+
+```{r}
+dem_wealth_df <- readr::read_csv("http://svmiller.com/extdata/democracy-income-1950.csv") |> 
+  dplyr::transmute(iso3c, country, gdp_per_cap = wbgdp2011est / wbpopest, democracy_score = xm_qudsest)
+```
+
+The `dem_wealth_df` data set (taken from the wonderful Dr Steven V Miller's [blog post](https://svmiller.com/blog/2023/09/democracy-income-correlation-analysis/)) will help us explore the relationship between a country's level of democracy and its citizens' wealth in 1950. It is a replication of [Lipset (1959)](https://www.cambridge.org/core/journals/american-political-science-review/article/abs/some-social-requisites-of-democracy-economic-development-and-political-legitimacy1/26559429359F42D3E9B8BC82CA65546A). Miller uses Xavier Marquez's [measure for democracy](https://www.cambridge.org/core/journals/political-analysis/article/democratic-compromise-a-latent-variable-analysis-of-ten-measures-of-regime-type/2A6B2BBA6F80367644F2C5007E1CFC29). This is a great (if complicated) measure. For this problem set, you only need to know that a country's level of democracy increases with its "democracy score".
+
+## Question 1
+
+```{r}
+library(tidyverse)
+```
+
+### Part A
+
+*Points: 2*
+
+> Using the `dem_wealth_df` data frame loaded in above, produce a scatter plot of the variables `democracy_score` and `gdp_per_cap` (with `gdp_per_cap` as the dependent variable on the y-axis). Professionally format your graph.
+
+```{r}
+ggplot(dem_wealth_df, aes(x = democracy_score, y = gdp_per_cap)) +
+   geom_point() +
+   theme_minimal() +
+   labs(
+     title = "Relationship Between Democracy Score and GDP per Capita",
+     x = "Democracy Score",
+     y = "GDP per Capita"
+  )
+```
+
+### Part B
+
+*Points: 3*
+
+> Describe the scatter plot. Note suspected outliers if any exist (a visual inspection will suffice for this question).
+
+There was a positive correlation between the x and y values. There are appear to be three outliers, 1 just below 10,000 GDP per cap and 2 above 15,000 GDP per Cap
+
+## Question 2
+
+*Points: 2*
+
+> Calculate the correlation coefficient between `democracy_score` and `gdp_per_cap`. What does it tell you about the relationship between a country's level of democracy and its citizens' wealth?
+
+```{r}
+
+cor(dem_wealth_df$democracy_score, dem_wealth_df$gdp_per_cap, use = "complete.obs")
+
+
+```
+
+The correlation coefficient between both variables is 0.7008677. This tells us that there is a positive correlation between level of democracy and citizen's wealth, it can't be considered strong.
+
+## Question 3
+
+I would like to know whether individuals with higher levels of education tend to pay greater levels of attention to politics than those with lower levels of education.
+
+### Part A
+
+*Points: 5*
+
+> Using the `nes2024` data set in the `polisciols` R package, construct a cross-tab of the relationship between `attention_to_politics` and `education`.
+
+```{r}
+library(polisciols)
+library(modelsummary)
+datasummary_crosstab(attention_to_politics ~ education, data = nes2024)
+
+```
+
+### Part B
+
+*Points: 3*
+
+> Describe the relationship between these two variables (if one exists).
+
+There's a positive correlation between the two variables, as there an increase in education, there was also an increase in attention paid to politics.
+
+## Question 4
+
+*Points: 5*
+
+I hypothesize that US voters who identify as being religious are less likely to support Federal government funding of scientific research. To test this, I run a survey of a representative sample of the US voting population. I ask respondents to indicate how often they attend religious ceremonies as a proxy measure of how strongly they identify as religious. They can answer: never, only for significant events, or regularly. Next, I ask respondents whether they think the Federal government's funding of scientific research is "too little", "about right", or "too much".
+
+> Describe how you would construct a cross-tab to evaluate my hypothesis. Which responses (religious identification or support for Federal funding) would you compare within? Relatedly, which would you vary? Finally, what statistics would you use to make your comparisons?
+
+The responses I would compare would be support for federal funding because that is my dependent variable. The responses that I would vary are religious identification because this is my independent variable. I would use a hypothetical code that would look something like this
+
+datasummary_crosstab(federal_funding \~ religious_attendance, dataset)
+
+## Question 5
+
+Let's return to our original question of the relationship between democracy and individuals' wealth.
+
+### Part A
+
+*Points: 2*
+
+> Create two new variables based on a country's level of democracy, and its citizens' wealth. For the democracy variable, split countries into three categories: `autocracy` if they score in the lowest third of democracy scores, `hybrid` if they score in the middle third, and `democracy` if they score in the highest third. Similarly, for the wealth variable, split countries into three categories: `low income` if they score in the lowest third of GDP per capita, `middle income` if they score in the middle third, and `high income` if they score in the highest third.
+
+```{r}
+
+dem_wealth_df$democracy_variable <- cut(
+  dem_wealth_df$democracy_score,
+  breaks = quantile(dem_wealth_df$democracy_score, probs = c(0, 1/3, 2/3, 1), na.rm = TRUE),
+  labels = c("autocracy", "hybrid", "democracy"),
+  include.lowest = TRUE
+)
+
+table(dem_wealth_df$democracy_variable)
+
+```
+
+Wealth Variable:
+
+```{r}
+dem_wealth_df$wealth_variable <- cut(
+  dem_wealth_df$gdp_per_cap,
+  breaks = quantile(dem_wealth_df$gdp_per_cap, probs = c(0, 1/3, 2/3, 1), na.rm = TRUE),
+  labels = c("low income", "middle income", "high income"),
+  include.lowest = TRUE
+)
+
+table(dem_wealth_df$wealth_variable)
+```
+
+### Part B
+
+*Points: 3*
+
+> Create a cross-tab.
+
+```{r}
+
+datasummary_crosstab(democracy_variable ~ wealth_variable, data = dem_wealth_df)
+
+```
+
+### Part C
+
+*Points: 5*
+
+> Describe the relationship between these variables.
+
+Countries that score lower in democracy will tend to have lower incomes and countries that have a higher democracy level will have higher income. There is a positive correlation between the two variables because as one increases, so does the other. 
