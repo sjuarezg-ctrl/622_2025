@@ -17,6 +17,10 @@ Please read all of the questions and tables carefully and follow all instruction
 While this is an open-note exam, you are not to receive assistance from anyone else. As usual, the Honor Code applies.
 :::
 
+::: callout-note
+22/30
+:::
+
 ## Conceptual Questions
 
 **Total points: 10**
@@ -26,6 +30,10 @@ Please include all work (and computations) necessary to answer the questions.
 ### Question 1
 
 *1 point*
+
+::: callout-note
+1/1
+:::
 
 The following is a list of observed values, ordered from lowest to highest: 62, 63, 63, 64, 66, 67, 68, 68, 69, 70, 71, 72, 72, 74, 75, 76. What is an accurate five-number summary for these data?
 
@@ -40,6 +48,10 @@ data
 ### Question 2
 
 *1 point*
+
+::: callout-note
+1/1
+:::
 
 Suppose that the median, Q1, and Q3 from question #1 is an accurate representation of a second (hypothetical) distribution. Based on what this information tells you about this second distribution, which of the following numbers would be a suspected outlier?
 
@@ -56,11 +68,21 @@ Answer: C
 
 *1 point*
 
+::: callout-note
+0.5/1
+:::
+
 The median age of ten people in a room is 50 years. One 40-year-old person leaves the room. What can we expect will happen to the median age for the remaining nine people? Do we know the median age of those nine people; if so, what is it?
 
-Answer: The median will remain the same because it is resistant to changes in the data. The median of the remaining 9 people will be 50. \### Question 4
+Answer: The median will remain the same because it is resistant to changes in the data. The median of the remaining 9 people will be 50.
+
+\### Question 4
 
 *1 point*
+
+::: callout-note
+1/1
+:::
 
 The mean age of ten people in a room is 50 years. One 70-years-old person leaves the room. What can we expect will happen to the mean age for the remaining nine people? Do we know the mean age of those nine people; if so, what is it?
 
@@ -70,6 +92,10 @@ Answer: The mean age will decrease because it is not resistant and a larger numb
 
 *1 point*
 
+::: callout-note
+0.5/1
+:::
+
 The mean age of ten people in a room is 50 years and the standard deviation is 3 years. One person leaves the room, and both the mean and the standard deviation become larger. What do we know about the age of that person?
 
 Answer: That person was younfer than 50 years old.
@@ -77,6 +103,10 @@ Answer: That person was younfer than 50 years old.
 ### Question 6
 
 *1 point*
+
+::: callout-note
+1/1
+:::
 
 The distribution of some variable has a median that is smaller than its mean. Which of the following statements about the distribution's shape is most consistent with this information?
 
@@ -91,6 +121,10 @@ Answer: C
 
 *1 point*
 
+::: callout-note
+1/1
+:::
+
 Suppose I want to test the hypothesis that the U.S. public's approval of the president is higher when people have more positive perceptions of the U.S. economy. To test this hypothesis, I conduct a survey of individual-level attitudes. Which of the following research design strategies should I expect to exhibit both the greatest sampling variability (in the context of repeated sampling) and the lowest degree of expected sampling bias?
 
 A.  A random sample of 1,200 people from a list of all U.S. residential addresses
@@ -98,9 +132,15 @@ B.  A random sample of 600 people from a list of all registered students at the 
 C.  A random sample of 1,200 people from a list of all registered students at the University of Maryland
 D.  A random sample of 600 people from a list of all U.S. residential addresses.
 
-Answer: D \### Question 8
+Answer: D
+
+\### Question 8
 
 *1 point*
+
+::: callout-note
+0.5/1
+:::
 
 Which of those research design strategies should I expect to exhibit the lowest degree of expected sampling bias?
 
@@ -110,6 +150,10 @@ A random sample of 1,200 people from a list of all U.S. residential addresses
 
 *1 point*
 
+::: callout-note
+1/1
+:::
+
 I hypothesize that, as people become more conservative, they watch NASCAR more often. My measure of conservatism is a three category variable—not conservative, somewhat conservative, very conservative. My measure of NASCAR viewing is four category—none, occasionally, often, frequently. I construct a cross tab to examine this hypothesis. What distributions would I compare to test my hypothesis?
 
 Answer: You would compare how much NASCAR viewing varies within each level of conservatism.
@@ -117,6 +161,10 @@ Answer: You would compare how much NASCAR viewing varies within each level of co
 ### Question 10
 
 *1 point*
+
+::: callout-note
+0/1
+:::
 
 I examine the correlation between my independent variable and my dependent variable, and find a correlation coefficient of 0.9. What does this tell me about the causal effect of the IV on the DV?
 
@@ -144,6 +192,10 @@ I am interested in exploring US voters' views of Donald Trump prior to the last 
 
 #### Part A
 
+::: callout-note
+0.5/1 - Needed to describe the distribution.
+:::
+
 Plot the distribution of NES respondents' answers to the following question: On a scale from 0 to 100, how would you rate Donald Trump? Describe that distribution. Include the five-number summary in your answer.
 
 ```{r}
@@ -164,11 +216,19 @@ These responses are stored in the `therm_trump` variable.
 
 #### Part B
 
+::: callout-note
+1/1
+:::
+
 If I were to select a respondent at random, what is the answer they most likely provided to this question?
 
 Answer: 0
 
 #### Part C
+
+::: callout-note
+1/1
+:::
 
 I hypothesize that people who hold different views about the size of the difference in incomes between rich people and poor people in the United States today compared to 20 years ago also have different views about Donald Trump. Group respondents based on their views about this difference and then plot, within each group, the respondents' answers to the question about their views of Donald Trump.
 
@@ -189,11 +249,19 @@ ggplot(nes, aes(x = income_gap, y = therm_trump)) +
 
 #### Part D
 
+::: callout-note
+1/1
+:::
+
 Do these responses support my hypothesis?
 
 Answer: Yes
 
 #### Part E
+
+::: callout-note
+0/1
+:::
 
 If I were to select an individual who thought the difference in incomes between rich people and poor people in the United States today is **smaller** than it was 20 years ago, what is the most likely answer they provided to the question about their views of Donald Trump?
 
@@ -203,11 +271,27 @@ Answer: They most likely gave a high rating, above 75.
 
 *5 points*
 
+::: callout-note
+2/5
+:::
+
 I hypothesize that providing free child care at election voting stations will increase turnout among families with young children. Design an experiment to test this hypothesis. Describe any shortcomings your experimental design may have.
 
-Answer: There would be two variables. IV would be child care, DV would be voter turnout. The sample would be families with young children and adults who are eligible for voting. The project would be carried out in two randomly selected counties. The control group would be the county with no childcare, the control would be the county with free childcare at polling stations.Treatment would be randomly assigned to one of the two counties. I would create advertisements informing families of free childcare at voting stations and randomly select the families within the treatment county that would receive them. I would then compare if families were more likely to vote after they had knowledge of free childcare at voting stations.
+Answer: There would be two variables. IV would be child care, DV would be voter turnout. The sample would be families with young children and adults who are eligible for voting.
+
+::: callout-note
+This sounds like your population, not sample.
+:::
+
+The project would be carried out in two randomly selected counties. The control group would be the county with no childcare, the control would be the county with free childcare at polling stations.Treatment would be randomly assigned to one of the two counties. I would create advertisements informing families of free childcare at voting stations and randomly select the families within the treatment county that would receive them. I would then compare if families were more likely to vote after they had knowledge of free childcare at voting stations.
 
 Potential problems could include that those families that were randomly selected to receive the advertisements would spread the message via word of mouth, affecting the process of randomly selecting families.
+
+::: callout-note
+Assigning the treatment by county is unlikely to produce two groups that are identical, on average, prior to treatment. People who live in different counties are likely to be different from one another in important ways.
+
+Also, the people who did not receive the ad still get treated. It will be difficult to parse out the role the ad played.
+:::
 
 ### Question 3
 
@@ -217,6 +301,10 @@ I hypothesize that countries that share similar regime types are more likely to 
 
 #### Part A
 
+::: callout-note
+2/2
+:::
+
 Construct a cross tab of these variables.
 
 ```{r}
@@ -225,6 +313,10 @@ datasummary_crosstab(regime_dyad ~ defense_agreement, data = alliances_regime)
 ```
 
 #### Part B
+
+::: callout-note
+2/3 - Judge this by the proportion within each group, not the count.
+:::
 
 Interpret your cross tab. Do these data support my hypothesis?
 
@@ -237,6 +329,10 @@ The results do support the initial hypothesis, the regimes that fell under the "
 I am interested in exploring the relationship between each country's wealth and its renewable energy use. To do this, I collect data on each country's GDP per capita (as a proxy for wealth) and the proportion of its overall energy consumption that is produced using renewable energy sources. Use the `renewables.csv` dataset published on ELMs to answer the following questions.
 
 #### Part A
+
+::: callout-note
+1/1
+:::
 
 What proportion of overall energy consumption do the middle 50 percent of countries produce using renewable energy sources? Include an appropriate plot in your answer.
 
@@ -265,6 +361,10 @@ ggplot(renewables, aes(y = renewables_use)) +
 
 #### Part B
 
+::: callout-note
+1/1
+:::
+
 Describe the distribution of GDP per capita across countries globally. Include an appropriate plot in your answer.
 
 Answer:
@@ -284,6 +384,10 @@ ggplot(renewables, aes(x = gdp_per_cap)) +
 ```
 
 #### Part C
+
+::: callout-note
+2/2
+:::
 
 Is the relationship between renewable energy use and wealth linear? What about the relationship between renewable energy use and each country's logged GDP per capita? Include two plots (one of each relationship) in your answer.
 
@@ -313,6 +417,10 @@ ggplot(renewables, aes(x = log(gdp_per_cap), y = renewables_use)) +
 Neither relationship is linear, the logged data comes closer to it.
 
 #### Part D
+
+::: callout-note
+1/1
+:::
 
 Describe the direction and strength of the relationship between renewable energy use and wealth.
 
