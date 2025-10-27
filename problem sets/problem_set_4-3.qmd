@@ -13,6 +13,7 @@ execute:
 ```{r}
 library(tidyverse)
 ```
+
 Please upload your completed assignment to the ELMs course site (under the assignments menu) and to your class Github repository. You need to upload both your Quarto document (with R code, as needed) and its rendered output (either as a PDF or HTML file).
 
 **Total points: 30**
@@ -28,7 +29,7 @@ prob <- (3/49) * (2/48)
 prob
 ```
 
-Answer: The probability would be 0.00255102 
+Answer: The probability would be 0.00255102
 
 ## Question 2
 
@@ -41,7 +42,7 @@ prob_of_nogun_and_college <- (0.46) * (0.69)
 prob_of_nogun_and_college
 ```
 
-Answer: The probability will be 0.3174 
+Answer: The probability will be 0.3174
 
 ## Question 3
 
