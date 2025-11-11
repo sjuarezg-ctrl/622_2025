@@ -21,6 +21,10 @@ Please upload your completed assignment to the ELMs course site (under the assig
 
 **Total points: 20**
 
+::: callout-note
+15/20
+:::
+
 ## Question 1
 
 *Total points: 10*
@@ -30,6 +34,10 @@ I hypothesize that the older someone is, the more they like watching golf. I con
 ### Part A
 
 *Points: 4*
+
+::: callout-note
+2/4
+:::
 
 Make a cross-tab, by hand, of the relationship between these two variables based on the following (completely made up) data. Make sure that you present both raw counts and the appropriate percentages to examine the relationship.
 
@@ -56,17 +64,33 @@ age_golf_df
 datasummary_crosstab(age ~ preference, data = age_golf_df)
 ```
 
+::: callout-note
+You needed to calculate this by hand. You could not rely on the `datasummary_crosstab()` function.
+:::
+
 ### Part B
 
 *Points: 2*
+
+::: callout-note
+1/2
+:::
 
 Do the data support my hypothesis? Be sure to explain the nature of the relationship (or lack thereof, if relevant).
 
 Answer: The data does support the hypothesis, as the age groups increased so did the number of people who enjoyed golf. This can be seen for example with then 36-50 and 51-65 groups where less than 30% chose "Not at all" and more than half went with either "somewhat"or "very much."
 
+::: callout-note
+The data do not indicate a linear positive relationship.
+:::
+
 ### Part C
 
 *Points: 2*
+
+::: callout-note
+2/2
+:::
 
 Compute (by hand) the chi-square statistic to test the null hypothesis of no relationship between these two variables. Be sure to show your work.
 
@@ -99,14 +123,25 @@ p_value
 
 *Points: 2*
 
+::: callout-note
+1/2
+:::
+
 Using the chi-square statistic that you computed in question 1(c), can you reject the null hypothesis of no relationship between these two variables with 95% confidence? Why, or why not?
 
 Answer: Given that the p-value is larger than the 0.05, then we can accept the null hypothesis that there is no relationship between age and enjoyment of watching golf.
 
+::: callout-note
+We never find evidence of the null hypothesis. We can only find (insufficient) evidence of the alternative hypothesis. So, here, you cannot reject the null hypothesis based on the data.
+:::
 
 ## Question 2
 
 *Points: 10*
+
+::: callout-note
+9/10
+:::
 
 I hypothesize that people with higher levels of education tend to be more likely to pay higher levels of attention to politics. Use the `nes2024` dataset from the `polisciols` package to test my hypothesis. Create a cross-tab examining the relationship between individuals' levels of education (`education`) and the time they spend paying attention to politics (`attention_to_politics`).
 
@@ -122,9 +157,14 @@ Do the data support my hypothesis? Be sure to explain the nature of the relation
 
 Answer: The data does support the hypothesis that higher education leads to an increase in attention paid to politics. As education increased, there tends to be a higher percentage of people paying attention to politics.
 
+::: callout-note
+Be a little careful with your interpretation. Your language is causal: "As education increased, there tends to be a higher percentage of people paying attention to politics." A more accurate interpretation is: "Individuals with higher levels of education tended to pay more attention to politics compared to individuals with lower levels of education".
+:::
+
 **chi-square:**
 
 ```{r}
 chisq.test(nes2024$education, nes2024$attention_to_politics)
 ```
+
 Given that the p-value is much smaller than 0.05, then the null hypothesis can be rejected at the 95% confidence interval.
