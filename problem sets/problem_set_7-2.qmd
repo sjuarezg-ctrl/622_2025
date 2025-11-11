@@ -101,7 +101,7 @@ p_value
 
 Using the chi-square statistic that you computed in question 1(c), can you reject the null hypothesis of no relationship between these two variables with 95% confidence? Why, or why not?
 
-Answer: Given that the p-value is smaller than the 0.05, then we can reject the null hypothesis that there is no relationship between age and enjoyment of watching golf.
+Answer: Given that the p-value is larger than the 0.05, then we can accept the null hypothesis that there is no relationship between age and enjoyment of watching golf.
 
 
 ## Question 2
