@@ -37,6 +37,10 @@ Please include all work (and computations) necessary to answer the questions.
 
 *2 points*
 
+::: callout-note
+1/2 You lost one point for using the **Z-score** ($qnorm(0.95)$) instead of the **t-statistic**.
+:::
+
 Suppose I am interested in determining if freshman undergraduates at the University of Maryland spend more hours studying in the average week than sophomore undergraduates. I conduct a study in which I take a simple random sample (SRS) of 1200 freshman students and 1200 sophomore students. I find that the freshman students in my sample study for, on average, 412 minutes per week and the sophomore students in my sample study for, on average, 335 minutes per week. The standard error of the difference is 30. What is a 90% confidence interval for the difference between freshman and sophomore students?
 
 ```{r}
@@ -59,6 +63,10 @@ We are 90% confident that freshman study between 27.6 minutes and 126.3 minutes 
 
 *2 points*
 
+::: callout-note
+1/2 You correctly rejected the null hypothesis based on the small $p$-value ($0.010 < 0.10$). However, for a difference-of-means test, you should use the $t$-statistic with the appropriate degrees of freedom, not the $Z$-score. Because you referred to the $Z$-score in your calculation and justification, you lose 1 point.
+:::
+
 Based on the results of my study described in question 1, can you reject the null hypothesis of no statistically meaningful difference in the study habits of sophomore and freshman students? Why or why not?
 
 ```{r}
@@ -80,6 +88,10 @@ Given that the p value (0.010) is smaller than the significance level (0.10) the
 
 *2 points*
 
+::: callout-note
+2/2
+:::
+
 If I am testing a null hypothesis that X has no effect on Y in the population (and thus my alternative hypothesis is that X does have an effect), why might I prefer to commit a Type-II error over a Type-I error (and, of course, this holds aside my first preference of making no error at all)? Answer in no more than two sentences.
 
 A type I error will incorrectly identify a relationship that does not exist which in turn can lead to incorrect theories, conclusions, or waste of future resources. A type II error is preferable because while the initial relationship may be missed, there is opportunity to discover it with further research.
@@ -87,6 +99,10 @@ A type I error will incorrectly identify a relationship that does not exist whic
 ### Question 4
 
 *1 point*
+
+::: callout-note
+1/1
+:::
 
 When conducting a difference-of-means test, which of the following samples would yield a sampling distribution with the lowest variability?
 
@@ -100,6 +116,10 @@ A, the sample of 900 with a standard deviation of 15 will lead the lowest standa
 ### Question 5
 
 *1 point*
+
+::: callout-note
+1/1
+:::
 
 Which of the following probabilities is not independent?
 
@@ -115,6 +135,10 @@ C, drawing an Ace
 
 *1 point*
 
+::: callout-note
+1/1
+:::
+
 I conduct a two-tailed difference-of-means test and obtain a t-statistic of 2.10. Is my result statistically significant (with 95% confidence)?
 
 A.  Yes, at the 0.05 level (p\<0.05)
@@ -127,6 +151,10 @@ Answer is D, degress of freedom are needed
 ### Question 7
 
 *1 point*
+
+::: callout-note
+1/1
+:::
 
 I take a sample of 1800 adults and find that 360 of them watched last Monday’s NFL game. What probability represents the complement to the sample proportion of adults who watched the NFL game?
 
@@ -150,6 +178,12 @@ The complement probability will be 0.80.
 
 *1 point*
 
+::: callout-note
+0/1
+
+While **more observations (A)** is correct because it reduces the Standard Error (SE), **greater variance in the sample (B)** is incorrect. Greater variance *increases* the Standard Error, which *decreases* the likelihood of statistical significance (all else equal). The correct answer is A.
+:::
+
 Which of the following makes it more likely that a given sample statistic will be statistically different from zero (and thus allow you to reject the null hypothesis, all else equal)?
 
 A.  More observations
@@ -165,6 +199,10 @@ Answer is E
 ### Question 9
 
 *1 point*
+
+::: callout-note
+1/1
+:::
 
 The p-value for a two-tailed test of the null hypothesis $H_0: \mu=40$ is 0.06. Which of the following statements is accurate?
 
@@ -184,6 +222,10 @@ Answer is A
 
 *2 points*
 
+::: callout-note
+2/2
+:::
+
 If you roll a fair (six-sided) die twice, what is the probability that both rolls will be odd or greater than four?
 
 ```{r}
@@ -201,6 +243,10 @@ The probability that BOTH rolls will be odd or greater than four is 0.44
 #### Part B
 
 *2 points*
+
+::: callout-note
+2/2
+:::
 
 The following is a distribution of U.S. college students classified by their age and full- vs. part-time status. Based on these data, what is the probability that a student is in the 25-29 age group, given that (i.e., conditional on knowledge that) the student is full time?
 
@@ -241,6 +287,10 @@ The probability that a student is in the 25-29 age range given that they are ful
 
 *2 points*
 
+::: callout-note
+2/2
+:::
+
 Using a SRS of 1211 people, I estimate that the proportion of people living in the South that favor teaching sexual education in public schools is 0.874 and the proportion of people outside of the south that favor teaching sexual education in public schools is 0.906. And, the standard error of the difference (in citizen views about teaching sexual education in public schools) between people living in the south and those not living in the south is 0.015. Give an interval estimate for the difference in the proportion of people favoring sex education in public schools between people who do, and do not, live in the south.
 
 ```{r}
@@ -265,6 +315,10 @@ A 95% confidence interval for the difference in the proportion of people favorin
 #### Part B
 
 *2 points*
+
+::: callout-note
+2/2
+:::
 
 Do the data (i.e., estimates above) show support for my hypothesis? How do you know?
 
@@ -292,6 +346,10 @@ I am interested in estimating the average number of texts that University of Mar
 
 *2 points*
 
+::: callout-note
+1/2 This question involves means, so you need to use the $t$-statistic, not the $Z$-score.
+:::
+
 What is a 95% confidence interval around the sample statistic?
 
 ```{r}
@@ -316,6 +374,10 @@ A 95% confidence interval around the sample statistic is 99.12 and 110.88.
 
 *2 points*
 
+::: callout-note
+1/2 You incorrectly used the $Z$-score, not the $t$-statistic.
+:::
+
 When testing the null hypothesis, what is the test statistic associated with the sample statistic?
 
 ```{r}
@@ -335,6 +397,10 @@ When testing for the null hypothesis, the test statistic would be 1.667
 #### Part C
 
 *2 points*
+
+::: callout-note
+2/2
+:::
 
 If using a one-tailed test of the null hypothesis and you are willing to accept a Type-I error rate of 0.05, do the data support my hypothesis? Why or why not?
 
@@ -390,6 +456,10 @@ I hypothesize that, among only those that were eligible to vote, people with gre
 
 *3 points*
 
+::: callout-note
+0/3 You failed to complete a cross-tab and fully interpret the results by explaining the *nature* of the relationship with the column percentages. You must include the cross-tab or the column percentages for the voted category to show the graded relationship.
+:::
+
 Complete a cross-tab and interpret the results. Do the data support my hypothesis? Be sure to explain the nature of the relationship (or lack thereof, if relevant).
 
 ```{r}
@@ -402,6 +472,10 @@ The data does support the hypothesis that those who had more faith in the govern
 #### Part B
 
 *3 points*
+
+::: callout-note
+3/3
+:::
 
 Compute (by hand) the chi-square statistic to test the null hypothesis of no relationship between these two variables. Be sure to show your work.
 
@@ -445,6 +519,10 @@ The chi square statistic will be 6.01
 
 *2 points*
 
+::: callout-note
+2/2
+:::
+
 Using the chi-square statistic that you computed in question 1(b), can you reject the null hypothesis of no relationship between these two variables with 95% confidence? Why, or why not?
 
 ```{r}
@@ -458,7 +536,7 @@ crit_95
 
 ```
 
-Given that the chi square statistic calculated is greater than the critical value, then the null hypothesis can be rejected with 95% confidence. There is evidence at hand that there is a significant relationship between people's confidence in the U.S military and how they voted in the 2008 election. 
+Given that the chi square statistic calculated is greater than the critical value, then the null hypothesis can be rejected with 95% confidence. There is evidence at hand that there is a significant relationship between people's confidence in the U.S military and how they voted in the 2008 election.
 
 ### Question 2
 
@@ -482,6 +560,10 @@ I hypothesize that citizens who do not support increased U.S. offshore drilling 
 
 *2 points*
 
+::: callout-note
+2/2
+:::
+
 Using these data, what is the point estimate for the mean conservatism/liberalism score among those that oppose drilling? What is the point estimate for the mean conservatism/liberalism score among those that are in favor of drilling?
 
 ```{r}
@@ -503,6 +585,10 @@ The point estimate for the mean score for those that oppose drilling is 2.64, th
 
 *6 points*
 
+::: callout-note
+6/6
+:::
+
 Evaluate the null hypothesis that there is no difference in the mean conservatism/liberalism score among those that approve vs. disapprove of drilling. Do the data support my hypothesis? Why or why not? Be sure to show all work necessary to answer the question by hand (i.e., you may only use R to the extent that is absolutely necessary to complete the question; otherwise, you must show how you would answer the question by hand).
 
 ```{r}
@@ -518,7 +604,8 @@ p_value
 
 ```
 
-Given that the P-value (9.912213e-100) is so small, then we can reject the null hypothesis of no difference. However, the data does not support the initial hypothesis put forward. 
+Given that the P-value (9.912213e-100) is so small, then we can reject the null hypothesis of no difference. However, the data does not support the initial hypothesis put forward.
+
 ### Question 3
 
 *8 points total*
@@ -528,6 +615,10 @@ I hypothesize that people who express that religion is important to them were mo
 #### Part A
 
 *2 points*
+
+::: callout-note
+1/2 You used the wrong `relig_pray` coding. `relig_pray == 1` refers to those who pray every day (and think it is important). `relig_pray == 5` refers to those who never pray (and think it is not important).
+:::
 
 Using these data, what is the point estimate for the proportion of respondents that voted (i.e., turnout rate), among citizens expressing that religion is not important? What is the point estimate for the proportion of respondents that voted, among citizens expressing that religion matters a great deal?
 
@@ -561,6 +652,10 @@ The point estimate for those who expressed that religion was not important was 0
 
 *6 points*
 
+::: callout-note
+5/6 By incorrectly interpreting the `relig_pray` variable, you used the wrong observation counts. However, you ended up with the right answer (reject the null hypothesis).
+:::
+
 Evaluate the null hypothesis that there is no difference in the proportion of voters (i.e., turnout rate) among citizens expressing that religion is not important vs. those reporting that religion matters a great deal. Do the data support my hypothesis? Why or why not? Be sure to show all work necessary to answer the question by hand (i.e., you may only use R to the extent that is absolutely necessary to complete the question; otherwise, you must show how you would answer the question by hand).
 
 ```{r}
@@ -575,4 +670,4 @@ z_stat <- (0.724-0.824)/standard_e
 
 ```
 
-We can reject the null hypothesis given that the p- value is so small. In turn this means that the alternate hypothesis can be supported. 
+We can reject the null hypothesis given that the p- value is so small. In turn this means that the alternate hypothesis can be supported.
