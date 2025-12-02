@@ -1,0 +1,122 @@
+---
+title: "Problem Set 8"
+subtitle: "Due date: 25 November"
+format: 
+  html:
+    self-contained: true
+toc: true
+editor: visual
+execute: 
+  echo: true
+---
+
+Please upload your completed assignment to the ELMs course site (under the assignments menu). Remember to include an annotated script file for all work with R and show your math for all other problems (if applicable, or necessary). Please also upload your completed assignment to the Github repository that you have shared with us. *We should be able to run your script with no errors.*
+
+```{r}
+library(tidyverse)
+```
+
+**Total points: 30**
+
+## Question 1
+
+*Points: 5*
+
+For the following regression equation, $\hat{Y} = 8.5 + 6x + \epsilon$, the standard error for $\beta_0$ is 2.5, the standard error for $\beta_1$ is 3.5, and the sample size is 2000. Find the t-statistic, 95% confidence interval, and p-value (using a two-tailed test) for $\beta_1$.
+
+Is $\beta_1$ statistically significant at the 0.05-level with a two-tailed
+test? Why or why not?
+
+```{r}
+
+t <- (6 -0)/3.5
+t
+
+6 + 1.96*3.5
+6 - 1.96*3.5
+
+2*(1 - pt(abs(1.7143), 1998))
+
+```
+Given that the p value (0.086) is larger than 0.05, then we fail to reject the null hypothesis which means that $\beta_1$ is not statistically significant at the 0.05 level with a two-tailed test.
+
+## Question 2
+
+*Points: 5*
+
+Suppose you estimate an OLS regression and retrieve a $R^2$ value of 0.45. If the Total Sum of Squares (TSS) from that regression equals 4,700, what is the value for the Residual Sum of Squares (RSS)?
+
+```{r}
+(1-0.45)*4700
+
+```
+The Residual Sum of Squares is 2585.
+## Question 3
+
+*Points: 5*
+
+Suppose you estimate a bivariate regression with a sample size of 102 and obtain a regression coefficient ($\beta_1$) of 5.0. What is the largest standard error that $\beta_1$ could have and still be statistically significant (i.e., reject the null hypothesis of no relationship) at the 0.05 level with a one-tailed test?
+
+```{r}
+102-2 -> df
+
+5.0/1.66
+
+```
+
+The sample size is 102, the degrees of freedom become 102-2. This is a 5 % one tailed test with the already established degrees of freedom, therefore the critical value is 1.66.
+
+Given all of this information, we can deduce that the largest standard error that would allow $\beta_1$ to remain statistically significant is 3.012.
+
+
+## Question 4
+
+*Points: 5*
+
+```{r}
+gapminder_df <- wbstats::wb_data(c("NY.GDP.PCAP.CD", "SP.DYN.LE00.IN"),
+                                 start_date = 2019, end_date = 2019) |> 
+  dplyr::rename(gdp_per_cap = "NY.GDP.PCAP.CD", life_exp = "SP.DYN.LE00.IN")
+```
+
+Using the `gapminder_df` data set read in above, produce a scatterplot of the variables `gdp_per_cap` and `life_exp` (with `life_exp` as the dependent variable on the y-axis). Fit a regression line to the scatterplot. Describe the relationship illustrated. Note any suspected outliers, if any (a visual inspection will suffice for this question).
+
+::: callout-note
+The variable `gdp_per_cap` measures each country's GDP per capita (representing their individual wealth), and `life_exp` indicates the number of years individuals within that country born that year are expected to live (representing their health).
+:::
+
+```{r}
+library(wbstats)
+library(dplyr)
+library(ggplot2) 
+ggplot(gapminder_df, aes(x = gdp_per_cap, y = life_exp)) + 
+  geom_point() + geom_smooth(method = "lm", se = FALSE, color = "red") + 
+  labs( x = "GDP per capita", y = "Life expectancy", title = "GDP per capita and Life Expectancy (2019)" ) + theme_minimal()
+
+
+
+```
+
+There is a positive, nonlinear relationship between life expectancy and a country's GDP per capita. It can be observed that as GDP per capita increases, so does life expectancy. Most of the observations appear to be clustered however and there are a few outliers present. Two can be seen towards the upper right of the scatterplot with a GDP per capita over 150,000 and life expectancy over 80. There is also one in the lower left side of the scatterplot, with a GDP per capita close to what appears to be 0 and a life expectancy below 40. 
+
+## Question 5
+
+*Points: 10*
+
+Estimate a bivariate regression with `life_exp` as the dependent variable and `gdp_per_cap` as the independent variable and report the results in a professionally formatted table. In as much detail as possible, describe (and interpret) the regression results.
+
+```{r}
+library(wbstats)
+library(dplyr)
+library(ggplot2)
+library(modelsummary)
+
+model <- lm(life_exp ~ gdp_per_cap, data = gapminder_df)
+modelsummary(model,
+             stars = TRUE,
+             title = "Bivariate
+regression with life expectancy as DV and gdp per capita as IV")
+
+
+```
+This regression showcases the relationship between GDP per capita and life expectancy in 2019 with the former being the independent variable and the latter being the dependent variable. There appears to be positive and statistically significant relationship between the variables. When taking a glance at the intercept of 69.739, one could reach the conclusion that this is the expected life expectancy of an individual in a country where the GDP per capita is 0. The slope which is 0.0001756 indicates that each increase of a dollar in the GDP per capita will lead the average life expectancy in a country to increase by the aforementioned amount. The model accounts for 0.364 or 36.4% of the total variance in life expectancy which means that one could reach the conclusion that GDP per capita can help determine life expectancy in a country. However, there are still other factors that could also help influence life expectancy such as healthcare, education, and a country's level of democracy.
