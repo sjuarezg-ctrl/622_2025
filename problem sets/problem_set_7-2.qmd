@@ -129,7 +129,7 @@ p_value
 
 Using the chi-square statistic that you computed in question 1(c), can you reject the null hypothesis of no relationship between these two variables with 95% confidence? Why, or why not?
 
-Answer: Given that the p-value is larger than the 0.05, then we can accept the null hypothesis that there is no relationship between age and enjoyment of watching golf.
+Answer: Given that the p-value is lager than the 0.05, then we can accept the null hypothesis that there is no relationship between age and enjoyment of watching golf.
 
 ::: callout-note
 We never find evidence of the null hypothesis. We can only find (insufficient) evidence of the alternative hypothesis. So, here, you cannot reject the null hypothesis based on the data.
@@ -149,7 +149,10 @@ I hypothesize that people with higher levels of education tend to be more likely
 
 ```{r}
 
-datasummary_crosstab(education ~ attention_to_politics, data = nes2024)
+datasummary_crosstab(
+  education ~ attention_to_politics,
+  data = nes2024 |> drop_na(education, attention_to_politics)
+)
 
 ```
 
@@ -164,7 +167,13 @@ Be a little careful with your interpretation. Your language is causal: "As educa
 **chi-square:**
 
 ```{r}
-chisq.test(nes2024$education, nes2024$attention_to_politics)
+nes_clean <- nes2024 |>
+  filter(!is.na(attention_to_politics))
+
+chisq.test(nes_clean$education, nes_clean$attention_to_politics)
+
+
+
 ```
 
 Given that the p-value is much smaller than 0.05, then the null hypothesis can be rejected at the 95% confidence interval.

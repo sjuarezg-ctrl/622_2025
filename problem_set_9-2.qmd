@@ -16,9 +16,17 @@ Please upload your completed assignment to the ELMs course site (under the assig
 
 **Total points: 40**
 
+::: callout-note
+35/40
+:::
+
 ## Question 1
 
 *Points: 10*
+
+::: callout-note
+10/10
+:::
 
 Table 1 below reports the results from two regression models. In Model 1 in Table 1 $Y$ is regressed on $X_1$ and, in Model 2, $Y$ is regressed on both $X_1$ and $X_2$. Why might $X_1$ be statistically significant at conventional levels in Model 1 but statistically insignificant in Model 2? Be as specific as possible.
 
@@ -35,6 +43,10 @@ So, the significance of X1 in the smaller model stems partly from leaving out X2
 ## Question 2
 
 *Points: 10*
+
+::: callout-note
+8/10
+:::
 
 Using the `censusAggregate` dataset (posted on ELMs), which is survey data aggregated to the state level (1972-2000), estimate a regression with `vote` as the dependent variable and the following independent variables: `nonSouth`, `edr`, and `pcthsg`. Report the results in a professionally formatted table and interpret the regression results.
 
@@ -93,27 +105,66 @@ ggplot(preds, aes(x = pcthsg, y = fit)) +
   ) +
   theme_minimal(base_size = 14)
 ```
+
+::: callout-note
+Make your variable names more human-friendly.
+:::
+
 Answer:
 
-The regression results indicate that turnout levels are higher in states outside the South and in states that offer election day Registration. States outside the South had a higher turnout (about 5.5 percentage points) on average when compared to Southern states which were lower in their turnout. States that offered election day registration Election-Day Registration had a higher turnout (about 5.8 percentage points) on average when compared to states who did not. Education also plays a role, for every one-point in a state’s high school graduation rate, turnout rises by about 0.10 points which while relatively small is statistically significant. Overall, the model accounts for approximately 28% of the variation in turnout across states from 1972 to 2000. The predicted-values plot shows a steady upward pattern, indicating that higher educational attainment is linked to slightly higher turnout rates across the observed range of percentage of populations who graduated high school. Lastly, the constant is not meaningful in this example because pcthsg = 0. This means that it does not occur in any real state and is so far removed from the observed data.
+The regression results indicate that turnout levels are higher in states outside the South and in states that offer election day Registration. States outside the South had a higher turnout (about 5.5 percentage points) on average when compared to Southern states which were lower in their turnout.
+
+::: callout-note
+... holding election day registration and their high school graduation rates constant.
+:::
+
+States that offered election day registration Election-Day Registration had a higher turnout (about 5.8 percentage points) on average when compared to states who did not.
+
+::: callout-note
+See above.
+:::
+
+Education also plays a role, for every one-point in a state’s high school graduation rate, turnout rises by about 0.10 points which while relatively small is statistically significant.
+
+::: callout-note
+See above.
+
+Also, don't compare the estimated effects of IVs measured in different units. This coefficient is smaller because it relates to a one-percentage point change, whereas the others are binary switches.
+:::
+
+Overall, the model accounts for approximately 28% of the variation in turnout across states from 1972 to 2000. The predicted-values plot shows a steady upward pattern, indicating that higher educational attainment is linked to slightly higher turnout rates across the observed range of percentage of populations who graduated high school. Lastly, the constant is not meaningful in this example because pcthsg = 0. This means that it does not occur in any real state and is so far removed from the observed data.
 
 ## Question 3
 
 *Points: 5*
 
+::: callout-note
+4/5
+:::
+
 A linear regression model of the turnout rate in a state (`vote`) estimated by the percentage of the population in a state that graduated high school (`pcthsg`) alone shows this sole independent variable to be less likely to be observed if it had no explanatory power (the null were true) compared to the fuller model estimated in the last question. Why is this the case?
 
-Answer: 
+Answer:
 
-When turnout (vote) is regressed on pcthsg alone, the estimated effect of pcthsg appears more statistically significant than in the fuller model that also includes nonSouth and edr. This happens because, in the simple model, pcthsg is capturing not only its own relationship with turnout but also part of the variation that the other variables explain when they are included.
+When turnout (vote) is regressed on pcthsg alone, the estimated effect of pcthsg appears more statistically significant than in the fuller model that also includes nonSouth and edr.
 
-nonSouth and edr are both related to differences in turnout across states, and they also tend to move together with the level of high school completion. When they are not in the model, pcthsg absorbs some of their explanatory power, making it appear more strongly connected to turnout. Once these additional predictors are added, the model separates their unique contributions. The effect of pcthsg is then estimated while holding nonSouth and edr constant, which removes the extra variation it was picking up in the simple model. 
+::: callout-note
+Don't use dataset column names in your write-up. They mean nothing to your reader.
+:::
+
+This happens because, in the simple model, pcthsg is capturing not only its own relationship with turnout but also part of the variation that the other variables explain when they are included.
+
+nonSouth and edr are both related to differences in turnout across states, and they also tend to move together with the level of high school completion. When they are not in the model, pcthsg absorbs some of their explanatory power, making it appear more strongly connected to turnout. Once these additional predictors are added, the model separates their unique contributions. The effect of pcthsg is then estimated while holding nonSouth and edr constant, which removes the extra variation it was picking up in the simple model.
 
 Thus, pcthsg looks more statistically important in the simple bivariate regression partly because the model omits other relevant predictors. The fuller model provides a clearer picture, showing that once the other factors are taken into account, the independent contribution of high-school graduation rates to turnout is more modest and less precisely estimated.
 
 ## Question 4
 
 *Points: 15*
+
+::: callout-note
+13/15
+:::
 
 Using one of the other data sets available in the `poliscidata` package pick one dependent variable and two or more independent variables. Run a regression of the dependent variable on the independent variables. In your answer, describe why you picked the variables you did, produce a professionally formatted results table, and describe your statistical and substantive findings.
 
@@ -154,6 +205,32 @@ ggplot(pred_reg, aes(x = reg, y = fit)) +
 
 ```
 
+::: callout-note
+Make your variable names human-friendly.
+:::
+
 Answer:
 
-The regression model shows that voter turnout goes down on average slightly over time when compared to earlier years, even after accounting for state registration rules. The coefficient for year is negative and statistically significant, indicating that turnout goes down by roughly 0.046 percentage points per year on average. In contrast, states with higher values on the registration measure show higher turnout on average when compared to states that have a lower registration measure, with an increase of nearly 0.9 percentage points for each unit increase. The intercept is not substantively meaningful, as it represents the predicted turnout when year = 0, which falls far outside the time period of the dataset. I chose these variables because I was interested in understanding if there would be a noticeable pattern as time would go on, but also because there might be specific years that yield specific results which could require qualitative work and further research. Registration was also used because it has been a long standing interest of mine to see if registration rates hold any noticeable patterns when held in conversation with turnout. 
+The regression model shows that voter turnout goes down on average slightly over time when compared to earlier years, even after accounting for state registration rules. The coefficient for year is negative and statistically significant, indicating that turnout goes down by roughly 0.046 percentage points per year on average.
+
+::: callout-note
+Don't worry about this for now (because we haven't taught it to you), but you need to treat time very carefully in your linear regression models. We need to assume all observations are independent of each other to correctly estimate a linear regression. This assumption does not hold (turnout last election year absolutely impacts turnout this election year).
+
+... holding registration constant.
+:::
+
+In contrast, states with higher values on the registration measure show higher turnout on average when compared to states that have a lower registration measure, with an increase of nearly 0.9 percentage points for each unit increase.
+
+::: callout-note
+What is the registration measure? What do higher values mean?
+
+... holding the year constant.
+:::
+
+The intercept is not substantively meaningful, as it represents the predicted turnout when year = 0, which falls far outside the time period of the dataset. I chose these variables because I was interested in understanding if there would be a noticeable pattern as time would go on, but also because there might be specific years that yield specific results which could require qualitative work and further research.
+
+::: callout-note
+To pull out year-specific relationships, you need to convert your `year` to a factor (categorical variable). Otherwise, you are just estimating the constant, linear relationship between time and voter turnout rates. People often do this by decade, or Cold War vs not Cold War.
+:::
+
+Registration was also used because it has been a long standing interest of mine to see if registration rates hold any noticeable patterns when held in conversation with turnout.
