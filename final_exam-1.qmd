@@ -18,6 +18,10 @@ While this is an open-note exam, you are not to receive assistance from anyone e
 
 **Total points: 45**
 
+::: callout-note
+40/45
+:::
+
 ## Conceptual Questions
 
 Please include all work (and computations) necessary to answer the questions.
@@ -25,6 +29,10 @@ Please include all work (and computations) necessary to answer the questions.
 **Total points: 20 (2 points each)**
 
 ### Question 1
+
+::: callout-note
+2/2
+:::
 
 Suppose you estimate a bivariate regression model with a total sample size of 50 and obtain a standard error for $\beta_1$ of 2.50. What is the smallest regression coefficient ($\beta_1$) that you could have and still be able to reject the null hypothesis (of no relationship between $X_1$ and $Y$) at the 0.05 level with a one-tailed test?
 
@@ -45,8 +53,11 @@ smallest_beta1
 
 ```
 
-
 ### Question 2
+
+::: callout-note
+2/2
+:::
 
 I regress $Y$ on $X_1$ (i.e., $Y = \beta_0 + \beta_1 X_1$) and find that $\beta_1 = 4.20$, $SE_{\beta_1} = 1.90$, $t = 2.21$, $p = 0.01$, and a 95% confidence interval is \[0.48, 7.92\]. What is my best estimate of the effect of a two-unit change in $X_1$ on the mean of $Y$ in the population?
 
@@ -63,6 +74,10 @@ Holding all else constant, a two unit increase in x1 should increase by around 8
 
 ### Question 3
 
+::: callout-note
+2/2
+:::
+
 I conduct an OLS regression with a sample size of 90 and 5 independent variables. To determine a p-value for each coefficient, I would examine a t-distribution with how many degrees of freedom?
 
 ```{r}
@@ -77,8 +92,11 @@ df
 
 ```
 
-
 ### Question 4
+
+::: callout-note
+2/2
+:::
 
 Suppose I regress $Y$ on $X$ and compute the mean response for $Y$ at some specified value of $X$. When determining the confidence interval around this mean response, which of the following will **NOT** have any effect on the width (or size) of that confidence interval?
 
@@ -96,6 +114,10 @@ Answer: D
 
 ### Question 5
 
+::: callout-note
+2/2
+:::
+
 I regress $Y$ on $X$ and find that $\beta_1$ has a two-tailed p-value of 0.04. Which of the following statements is most accurate?
 
 A.  The lower and upper bound of a 95% confidence interval around $\beta_1$ will have the same sign,
@@ -112,6 +134,10 @@ Answer: D
 
 ### Question 6
 
+::: callout-note
+0/2
+:::
+
 I regress $Y$ on three independent variables -- $X_1$, $X_2$, and $X_3$ -- and I find the following 95% confidence intervals -- $\beta_1$: \[0.12, 1.45\], $\beta_2$: \[-0.01, 0.15\], and $\beta_3$: \[-0.64, -0.01\]. Which of the following statements is most accurate?
 
 A.  $\beta_2$ and $\beta_3$ will have negative coefficients, and $\beta_1$ is statistically significant at the 0.05 level (two-tailed),
@@ -126,8 +152,11 @@ E.  None of the above and/or there is not enough information.
 
 Answer: C
 
-
 ### Question 7
+
+::: callout-note
+2/2
+:::
 
 Suppose I estimate a regression with two independent variables and obtain a $R^2$ of 0.40 where the Residual Sum of Squares is equal to 5,150. What does the Total Sum of Squares equal in this regression model?
 
@@ -143,8 +172,11 @@ TSS
 
 ```
 
-
 ### Question 8
+
+::: callout-note
+2/2
+:::
 
 I regress $Y$ on $X_1$ and $X_2$ (i.e., $Y = \beta_0 + \beta_1 X_1 + \beta_2 X_2$). I find that $\beta_1 = -0.87$ with a two-tailed p value of 0.001 and $\beta_2 = 3.52$ with a two-tailed p-value of 0.04. Which of the following statements is most accurate?
 
@@ -160,6 +192,10 @@ Answer: D
 
 ### Question 9
 
+::: callout-note
+2/2
+:::
+
 I regress $Y$ on $X_1$ (i.e., $Y = \beta_0 + \beta_1 X_1$) and obtain a $R^2$ of 0.45. Then, I regress $Y$ on both $X_1$ and $X_2$ (i.e., $Y = \beta_0 + \beta_1 X_1 + \beta_2 X_2$) and obtain a $R^2$ of 0.53. Which of the following statements must be true?
 
 A.  The correlation between $X_1$ and $Y$ is stronger than the correlation between $X_2$ and $Y$,
@@ -173,6 +209,10 @@ D.  All of the above: all of these statements are true.
 Answer: C
 
 ### Question 10
+
+::: callout-note
+2/2
+:::
 
 Based on the following regression equation, might the negative coefficient on the South variable be the result of southern states having a lower proportion of high school graduates than non-southern states? In no more than one sentence, explain your answer.
 
@@ -195,6 +235,10 @@ Use the `world` dataset to answer the following questions. The relevant variable
 #### Part A
 
 *Points: 4*
+
+::: callout-note
+3/4
+:::
 
 Evaluate the bivariate relationship (using R) between a country's support for public education and its literacy rate. Report the results in a professionally formatted table. Do countries that spend more money on education appear to have a higher literacy rate?
 
@@ -223,11 +267,21 @@ modelsummary(
 
 ```
 
-There is a positive relationship between education spending and literacy. A one percentage point increase in public education spending is associated with a 1.72-point increase in literacy rate. This suggests that countries who invest more on public education will have higher literacy rates. The intercept of the model, 73.27, represents the predicted literacy rate when public education spending is zero, thought this is not meaningful to interpret on its own given that it would be hard to find a countryy who spends 0% on education.The model explains only about 2.7% of the variance in literacy rates across countries (R² = 0.027).
+There is a positive relationship between education spending and literacy. A one percentage point increase in public education spending is associated with a 1.72-point increase in literacy rate.
+
+::: callout-note
+Don't use causal language. Also, this estimated effect is "on average".
+:::
+
+This suggests that countries who invest more on public education will have higher literacy rates. The intercept of the model, 73.27, represents the predicted literacy rate when public education spending is zero, thought this is not meaningful to interpret on its own given that it would be hard to find a countryy who spends 0% on education.The model explains only about 2.7% of the variance in literacy rates across countries (R² = 0.027).
 
 #### Part B
 
 *Points: 5*
+
+::: callout-note
+5/5
+:::
 
 Estimate a second regression model (using R) that includes both a country's public expenditures on education and its level of democratization as independent variables. When controlling for democratization, does education expenditures exhibit a significant impact on literacy? Report the results in a professionally formatted table. Be sure to discuss the extent to which the results change, and if so, why they changed.
 
@@ -252,11 +306,16 @@ modelsummary(
 
 
 ```
+
 When both variables (public education spending and democratization) were included, the former was no longer a statistically significant predictor, whereas the latter remained strongly positive and significant. The model explained 25% of the variance in literacy rates, more than the bivariate regression. These results suggest that, although countries with higher education spending appeared to have higher literacy rates in the bivariate model, this relationship is largely explained by democratization. Once the level of democracy is taken into account, education spending itself does not have a meaningful independent effect on literacy.
 
 #### Part C
 
 *Points: 6*
+
+::: callout-note
+4/6
+:::
 
 Now estimate a third model (using R) that includes all of the variables listed above. Report the regression results in a professionally formatted table and interpret each coefficient. When interpreting the impact of democratization using this regression model, present/utilize a visual representation (using R) of the expected change in literacy as a function of democratization.
 
@@ -303,7 +362,14 @@ ggplot(pred_dem, aes(x = x, y = predicted)) +
 
 
 ```
-For each one-point increase in democratization, there is an increase of about 2.55 points in literacy (holding all else constant).With each one-percentage-point increase in average annual population growth there is a 3.33-point decrease in literacy. Education quality shows a positive, significant relationship with a one-unit increase associated with 3.81 points higher literacy. GDP per capita is positively related with literacy (2.36 points per $10,000, SE = 2.02), but not statistically significant, and public education spending has a very small, non-significant relationship (0.11 points per 1% of GDP, SE = 0.92). Approximately 37% of the variance in literacy across countries is explained by this model.
+
+For each one-point increase in democratization, there is an increase of about 2.55 points in literacy (holding all else constant).
+
+::: callout-note
+Don't use causal language. Also, this estimated effect is "on average".
+:::
+
+With each one-percentage-point increase in average annual population growth there is a 3.33-point decrease in literacy. Education quality shows a positive, significant relationship with a one-unit increase associated with 3.81 points higher literacy. GDP per capita is positively related with literacy (2.36 points per \$10,000, SE = 2.02), but not statistically significant, and public education spending has a very small, non-significant relationship (0.11 points per 1% of GDP, SE = 0.92). Approximately 37% of the variance in literacy across countries is explained by this model.
 
 ### Question 2
 
@@ -314,6 +380,10 @@ Using the `states` dataset, use R to regress the variable `obama08` (the percent
 #### Part A
 
 *Points: 5*
+
+::: callout-note
+5/5
+:::
 
 Interpret the substantive results from this regression model. Be sure to discuss the direction, magnitude, and statistical significance of each slope coefficient. Does the `union07` variable exhibit a substantively significant impact on voting behavior in the 2008 election?
 
@@ -347,24 +417,29 @@ modelsummary(
 
 ```
 
-The intercept (16.1) indicates the percentage of voters that would still cast a vote for Obama if all other independent variables were equal 0. It also explains approximately 52% of the variance in state-level vote shares (R² = 0.52). 
+The intercept (16.1) indicates the percentage of voters that would still cast a vote for Obama if all other independent variables were equal 0. It also explains approximately 52% of the variance in state-level vote shares (R² = 0.52).
 
-For each additional dollar of state cigarette tax, there was 0.52% more support for Obama when compared to those who didn't have more of a cigarette tax increase on average holding all else constant. The effect is not statistically significant though. 
+::: callout-note
+No need to include your interpretation of the intercept if we are unlikely to ever have an observation for which all variables are equal to zero.
+:::
 
-For each additional percentage of college graduates, there was a
-0.97 more support in Obama’s vote share when compared to those who didn't have that additional percentage of college graduates on average holding all else constant. The effect is significant. 
+For each additional dollar of state cigarette tax, there was 0.52% more support for Obama when compared to those who didn't have more of a cigarette tax increase on average holding all else constant. The effect is not statistically significant though.
 
-For each additional percentage of union membership, there was a
-0.75 more support for Obama’s vote share when compared to those who didn't have that additional percentage of union membership on average holding all else constant. The effect is significant.
+For each additional percentage of college graduates, there was a 0.97 more support in Obama’s vote share when compared to those who didn't have that additional percentage of college graduates on average holding all else constant. The effect is significant.
+
+For each additional percentage of union membership, there was a 0.75 more support for Obama’s vote share when compared to those who didn't have that additional percentage of union membership on average holding all else constant. The effect is significant.
 
 A state who was Southern was predicted to give 1.39 points more to Obama when compared to states who weren't Southern, on average holding all else constant. This effect is not significant.
 
-Union membership did prove to be a signficant variable on voting behavior, however it was not the only one seeing as how college education was also a strong indicator. 
-
+Union membership did prove to be a signficant variable on voting behavior, however it was not the only one seeing as how college education was also a strong indicator.
 
 #### Part B
 
 *Points: 2*
+
+::: callout-note
+2/2
+:::
 
 Interpret the intercept coefficient. What does this represent and is it meaningful to interpret this coefficient on its own? Why or why not?
 
@@ -373,6 +448,10 @@ The intercept coefficient represents the predicted value of Obama's vote share w
 #### Part C
 
 *Points: 2*
+
+::: callout-note
+2/2
+:::
 
 What is the expected mean percentage of Obama's vote total in a Southern state with a cigarette tax of \$2.00, a state population where 30% of people are college graduates, and where 15% of workers in a state are union members?
 
@@ -396,6 +475,10 @@ predicted_vote
 #### Part D
 
 *Points: 1*
+
+::: callout-note
+1/1
+:::
 
 What is a 90% confidence interval around the coefficient for the `south` variable.
 
